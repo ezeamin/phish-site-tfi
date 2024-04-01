@@ -1,8 +1,16 @@
+import { inject } from '@vercel/analytics';
+
+inject();
+
 const $form = document.getElementById('password-form');
 const $password = document.querySelector<HTMLInputElement>('[name=password]');
 const $password2 = document.querySelector<HTMLInputElement>('[name=password2]');
 const $errorPass = document.getElementById('id_error_password');
 const $errorPass2 = document.getElementById('id_error_password2');
+
+// PENDING:
+// 1. Routing
+// 2. Token aquisition and submit event
 
 $form?.addEventListener('submit', (event) => {
   event.preventDefault();
