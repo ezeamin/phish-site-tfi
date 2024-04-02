@@ -1,10 +1,6 @@
-import { inject } from '@vercel/analytics';
-
-inject();
-
 const $form = document.getElementById('password-form');
-const $password = document.querySelector<HTMLInputElement>('[name=password]');
-const $password2 = document.querySelector<HTMLInputElement>('[name=password2]');
+const $password = document.querySelector('[name=password]');
+const $password2 = document.querySelector('[name=password2]');
 const $errorPass = document.getElementById('id_error_password');
 const $errorPass2 = document.getElementById('id_error_password2');
 
@@ -81,25 +77,31 @@ $form?.addEventListener('submit', async (event) => {
     }
   }
 
-  await fetch(`${import.meta.env.VITE_BACKEND_URL}/form`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token }),
-  });
+  await fetch(
+    `https://phish-server-tfi-d57910f14e33.herokuapp.com/api/v1/register/form`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    }
+  );
 
   window.location.replace('https://seo.unsta.edu.ar/login/index.php');
 });
 
 const sendPingNotification = async () => {
-  await fetch(`${import.meta.env.VITE_BACKEND_URL}/link`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token }),
-  });
+  await fetch(
+    `https://phish-server-tfi-d57910f14e33.herokuapp.com/api/v1/register/link`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    }
+  );
 };
 
 sendPingNotification();
