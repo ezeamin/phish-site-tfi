@@ -8,11 +8,10 @@ const $password2 = document.querySelector<HTMLInputElement>('[name=password2]');
 const $errorPass = document.getElementById('id_error_password');
 const $errorPass2 = document.getElementById('id_error_password2');
 
-// PENDING:
-// 1. Routing
-// 2. Token aquisition and submit event
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get('token');
 
-$form?.addEventListener('submit', (event) => {
+$form?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const password = $password?.value;
@@ -82,5 +81,25 @@ $form?.addEventListener('submit', (event) => {
     }
   }
 
-  console.log(password);
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/form`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token }),
+  });
+
+  window.location.replace('https://seo.unsta.edu.ar/login/index.php');
 });
+
+const sendPingNotification = async () => {
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/link`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token }),
+  });
+};
+
+sendPingNotification();
