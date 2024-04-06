@@ -54,6 +54,8 @@ $form?.addEventListener('submit', async (event) => {
       $errorPass.innerText = 'Las contraseñas no coinciden';
       $errorPass2.innerText = 'Las contraseñas no coinciden';
     }
+
+    return;
   } else {
     $password?.classList.remove('is-invalid');
     $password2?.classList.remove('is-invalid');
@@ -74,6 +76,8 @@ $form?.addEventListener('submit', async (event) => {
       $errorPass2.innerText =
         'Las contraseñas deben tener al menos una longitud de 8 caracteres.';
     }
+
+    return;
   } else {
     $password?.classList.remove('is-invalid');
     $password2?.classList.remove('is-invalid');
