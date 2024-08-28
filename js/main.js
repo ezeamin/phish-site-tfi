@@ -105,15 +105,15 @@ $form?.addEventListener('submit', async (event) => {
 
 const getDni = async () => {
   const response = await fetch(
-    `${BACKEND_URL}/api/v1/register/dni?token=${token}`,
+    `${BACKEND_URL}/api/v1/register/name?token=${token}`,
     {
       credentials: 'include',
     }
   );
   const data = await response.json();
 
-  if (data.dni) {
-    document.getElementById('dni').innerText = data.dni;
+  if (data.name) {
+    document.getElementById('name').innerText = data.name;
   } else {
     window.location.replace('https://seo.unsta.edu.ar/login/index.php');
   }
