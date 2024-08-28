@@ -1,6 +1,8 @@
 const uuidRegex =
   /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
+const BACKEND_URL = 'https://phish-server-tfi-8d47dd3524ee.herokuapp.com';
+
 const $form = document.getElementById('password-form');
 const $password = document.querySelector('[name=password]');
 const $password2 = document.querySelector('[name=password2]');
@@ -93,20 +95,17 @@ $form?.addEventListener('submit', async (event) => {
   // TOMA 2 MINUTOS 🙏🏻
   // https://forms.gle/5M4QRaNf4rRQEo1i6
 
-  await fetch(
-    'https://phish-server-tfi-d57910f14e33.herokuapp.com/api/v1/register/form',
-    {
-      method: 'POST',
-      credentials: 'include',
-    }
-  );
+  await fetch(`${BACKEND_URL}/api/v1/register/form`, {
+    method: 'POST',
+    credentials: 'include',
+  });
 
   window.location.replace('https://seo.unsta.edu.ar/login/index.php');
 });
 
 const getDni = async () => {
   const response = await fetch(
-    `https://phish-server-tfi-d57910f14e33.herokuapp.com/api/v1/register/dni?token=${token}`,
+    `${BACKEND_URL}/api/v1/register/dni?token=${token}`,
     {
       credentials: 'include',
     }
